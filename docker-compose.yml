@@ -3,7 +3,7 @@ version: '3.8'
 services:
   web:
     build:
-      context: ./Sitio
+      context: ./sitioweb
     ports:
       - "80:80"
     depends_on:
