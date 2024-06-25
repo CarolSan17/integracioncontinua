@@ -2,7 +2,8 @@
 FROM nginx:alpine
 
 # Copia los archivos del sitio web al directorio de trabajo en el contenedor
-COPY ./sitio/ /usr/share/nginx/html
+COPY ./ /usr/share/nginx/html
 
 # Puerto por defecto de nginx
 EXPOSE 80
+
