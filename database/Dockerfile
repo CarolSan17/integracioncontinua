@@ -1,16 +1,14 @@
-# Usa la imagen base de MySQL 5.7
-FROM mysql:5.7
+# Usar la imagen oficial de MySQL
+FROM mysql:latest
 
-# Variables de entorno para configuración de MySQL
-ENV MYSQL_DATABASE=mydatabase \
-    MYSQL_USER=myuser \
-    MYSQL_PASSWORD=mypassword \
-    MYSQL_ROOT_PASSWORD=rootpassword
+# Configurar variables de entorno necesarias
+ENV MYSQL_DATABASE=mydatabase
+ENV MYSQL_USER=myuser
+ENV MYSQL_PASSWORD=mypassword
+ENV MYSQL_ROOT_PASSWORD=rootpassword
 
-# Copia los archivos de inicialización de la base de datos al contenedor
-COPY ./database-scripts/ /docker-entrypoint-initdb.d/
-
-# Puerto por defecto de MySQL
+# Exponer el puerto 3306
 EXPOSE 3306
 
-
+# Copiar archivos de inicialización si es necesario
+# COPY init.sql /docker-entrypoint-initdb.d/
