@@ -2,20 +2,20 @@ version: '3.8'
 
 services:
   db:
-    build:
-      context: ./database
+    image: mysql:5.7
     environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
       MYSQL_DATABASE: mydatabase
       MYSQL_USER: myuser
       MYSQL_PASSWORD: mypassword
-      MYSQL_ROOT_PASSWORD: rootpassword
     ports:
       - "3306:3306"
 
   sitio:
     build:
-      context: ./sitio
+      context: ./sitio   # Ruta al directorio donde se encuentra el Dockerfile del sitio
     ports:
-      - "8080:80"
+      - "8080:80"   # Mapeo de puertos del contenedor
     depends_on:
-      - db
+      - db   # Dependencia del servicio de base de datos
+
