@@ -13,7 +13,7 @@ services:
 
   sitio:
     build:
-      context: ./sitio   # Ruta al directorio donde se encuentra el Dockerfile del sitio
+      context: ./sitioweb   # Ruta al directorio donde se encuentra el Dockerfile del sitio
     ports:
       - "8080:80"   # Mapeo de puertos del contenedor
     depends_on:
