@@ -1,11 +1,8 @@
-# Usa la imagen base de nginx con Alpine
-FROM nginx:alpine
+# Usar la imagen oficial de Nginx
+FROM nginx:latest
 
-# Elimina el contenido por defecto del directorio HTML de nginx
-RUN rm -rf /usr/share/nginx/html/*
+# Copiar los archivos del sitio web al directorio de Nginx
+COPY . /usr/share/nginx/html
 
-# Copia los archivos del sitio web desde el contexto de construcción al contenedor
-COPY . /usr/share/nginx/html/
-
-# Puerto por defecto de nginx
+# Exponer el puerto 80
 EXPOSE 80
